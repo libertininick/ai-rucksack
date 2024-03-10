@@ -93,6 +93,7 @@ path = "src/ai_rucksack/__init__.py"
 
 # Default evironment configuration
 [tool.hatch.envs.default]
+python = "3.12"
 dependencies = ["ai-rucksack[dev]"]
 
 [tool.hatch.envs.default.scripts]
