@@ -13,7 +13,7 @@ from ai_rucksack.utils.protocols import Model
 
 def assert_models_equal(model1: Model, model2: Model) -> None:
     """Assert that two models are equal."""
-    if isinstance(model1, torch.nn.Module | torch.jit.ScriptModule):
+    if isinstance(model1, torch.nn.Module) and isinstance(model2, torch.nn.Module):
         m1_dict = model1.state_dict()
         m2_dict = model2.state_dict()
     else:

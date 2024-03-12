@@ -14,6 +14,8 @@ def test_get_parent_directory_path() -> None:
     with check:
         # Check that the root test directory can be found from the current file's path
         tests_dir = get_parent_directory_path(Path(__file__), "tests")
+        if tests_dir is None:
+            raise FileNotFoundError("tests directory not found.")
         assert tests_dir.name == "tests"
         assert tests_dir.parent.name == "ai-rucksack"
     with check:

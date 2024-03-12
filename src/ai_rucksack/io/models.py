@@ -25,7 +25,7 @@ CHECKSUM_PATTERN = re.compile(r"(?P<checksum>[A-Za-z0-9]{64})\.pts?$")
 FILE_EXTENSIONS = (".pt", ".pts")
 
 
-class ModelReceipt(msgspec.Struct, frozen=True):
+class ModelReceipt(msgspec.Struct, frozen=True):  # type: ignore
     """Receipt of a saved model.
 
     Attributes
@@ -211,7 +211,7 @@ def save_model(
     with open(model_path, "wb") as fp:
         fp.write(buffer.getvalue())
 
-    # Return reciept
+    # Return receipt
     return ModelReceipt(
         str(model_path), model_checksum, secret_key is not None, digestmod, as_script
     )
